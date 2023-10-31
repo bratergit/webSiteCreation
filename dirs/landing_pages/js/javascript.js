@@ -76,3 +76,43 @@ window.onload = function() {
         return color;
     }
 };
+
+// Function to get IP address
+async function getIpAddress() {
+    const response = await fetch('https://api.ipify.org?format=json');
+    const data = await response.json();
+    return data.ip;
+}
+
+// Function to get geographical location
+function getLocation() {
+    return new Promise((resolve, reject) => {
+        if (!navigator.geolocation) {
+            reject(new Error('Geolocation is not supported by your browser'));
+        } else {
+            navigator.geolocation.getCurrentPosition((position) => {
+                resolve({
+                    latitude: position.coords.latitude,
+                    longitude: position.coords.longitude,
+                });
+            }, () => {
+                reject(new Error('Unable to retrieve your location'));
+            });
+        }
+    });
+}
+
+// Using the functions
+async function getUserData() {
+    try {
+        const ip = await getIpAddress();
+        const location = await getLocation();
+        console.log(`IP Address: ${ip}`);
+        console.log(`Location: Latitude - ${location.latitude}, Longitude - ${location.longitude}`);
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+getUserData();
+
