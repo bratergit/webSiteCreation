@@ -19,6 +19,11 @@ window.onload = function() {
 
     var newsDiv = document.getElementById('news');
 
+    if (!newsDiv) {
+        console.error("Element with ID 'news' not found");
+        return;
+    }
+
     for (var i = 0; i < news.length; i++) {
         var newsItem = document.createElement('div');
         newsItem.className = 'news-item';
