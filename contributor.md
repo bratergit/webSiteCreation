@@ -1,3 +1,3 @@
-### bratergit -> github.com/bratergit
+### :octocat: bratergit -> github.com/bratergit
 
-### adalbertobrant -> github.com/adalbertobrant
+### :octocat: adalbertobrant -> github.com/adalbertobrant
